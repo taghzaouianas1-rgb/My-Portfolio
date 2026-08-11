@@ -10,18 +10,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <script src="https://unpkg.com/feather-icons"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Three.js for lightweight, smooth 3D visuals -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
+<body id="top">
 
-<div class="cursor"></div>
+<div class="cursor cursor-dot"></div>
+<div class="cursor-ring"></div>
+<div class="grain"></div>
+<div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+<div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
 
 <header>
 
 <nav class="navbar">
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <div class="logo">
 ANAS
@@ -42,25 +46,22 @@ ANAS
 </nav>
 
 <section class="hero">
+<!-- Interactive 3D Canvas Background -->
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
 
 <p class="status">
-● Software Development Intern @ Clever Cube AI
+<span></span> Available for meaningful digital work
 </p>
 
 <h1>
 
-Hi, I'm
-
-<span>Anas Taghzaoui</span>
+<span class="intro">Hi, I'm</span>
+<span class="name">Anas<br>Taghzaoui</span>
 
 </h1>
 
 <h2>
-
-Software Development Student
-
-Building modern web experiences while learning Full Stack Development.
-
+  Software Development Student <span>—</span> building thoughtful web experiences and growing into a full-stack developer.
 </h2>
 
 <div class="hero-buttons">
@@ -75,6 +76,16 @@ GitHub
 
 </div>
 
+<div class="hero-orbit" aria-hidden="true">
+  <div class="orbit orbit-one"></div>
+  <div class="orbit orbit-two"></div>
+  <div class="orbit-core">AT</div>
+  <span class="orbit-label top">BUILD / LEARN / REPEAT</span>
+  <span class="orbit-label bottom">EST. 2023</span>
+</div>
+
+<a href="#about" class="scroll-prompt">SCROLL TO EXPLORE <i>↓</i></a>
+
 </section>
 
 </header>
@@ -83,11 +94,7 @@ GitHub
 
 <section id="about" class="section">
 
-<div class="section-title">
-
-ABOUT
-
-</div>
+<div class="section-label"><span>01</span><div class="section-title">ABOUT</div></div>
 
 <h3>
 
@@ -95,25 +102,19 @@ A passionate student building one project at a time.
 
 </h3>
 
+<div class="about-layout">
 <p>
-
-I’m currently studying Software Development at EFET Marrakech and completing my internship at Clever Cube AI.
-
-Although I started with a Literature & Humanities background, I discovered my passion for technology and committed myself to learning software development every day.
-
-I enjoy creating clean websites, learning modern technologies, and constantly improving my skills.
-
+I’m a Software Development student at EFET Marrakech, currently completing an internship at Clever Cube AI. I build clear, responsive interfaces and enjoy turning a rough idea into a polished digital experience.
 </p>
+<div class="about-note"><span>MY APPROACH</span><strong>Curious by nature.<br>Deliberate by craft.</strong><p>From a Literature &amp; Humanities background to code, I bring a human perspective to every interface I build.</p></div>
+</div>
 
 </section>
 
 <section class="section timeline">
 
-<div class="section-title">
-
-MY JOURNEY
-
-</div>
+<div class="section-label"><span>02</span><div class="section-title">MY JOURNEY</div></div>
+<div class="timeline-line-glow" aria-hidden="true"></div>
 
 <div class="timeline-item">
 <div class="dot"></div>
@@ -151,11 +152,7 @@ MY JOURNEY
 
 <section id="skills" class="section">
 
-<div class="section-title">
-
-SKILLS
-
-</div>
+<div class="section-label"><span>03</span><div class="section-title">SKILLS</div></div>
 
 <div class="skills-grid">
 
@@ -190,15 +187,14 @@ Currently Learning
 
 <section id="projects" class="section">
 
-<div class="section-title">
-
-PROJECTS
-
-</div>
+<div class="section-label"><span>04</span><div class="section-title">SELECTED PROJECTS</div></div>
 
 <div class="cards">
 
 <div class="card">
+<div class="card-glass-glow" aria-hidden="true"></div>
+
+<div class="card-number">01 / 03</div>
 
 <h3>Bookmark Webpage</h3>
 
@@ -214,9 +210,14 @@ HTML • CSS • GitHub
 
 </span>
 
+<a class="project-link" href="https://github.com/taghzaouianas1-rgb" target="_blank" rel="noreferrer">EXPLORE PROJECT <b>↗</b></a>
+
 </div>
 
 <div class="card">
+<div class="card-glass-glow" aria-hidden="true"></div>
+
+<div class="card-number">02 / 03</div>
 
 <h3>Landing Pages</h3>
 
@@ -232,9 +233,14 @@ HTML • CSS
 
 </span>
 
+<a class="project-link" href="https://github.com/taghzaouianas1-rgb" target="_blank" rel="noreferrer">EXPLORE PROJECT <b>↗</b></a>
+
 </div>
 
 <div class="card">
+<div class="card-glass-glow" aria-hidden="true"></div>
+
+<div class="card-number">03 / 03</div>
 
 <h3>Developer Portfolio</h3>
 
@@ -250,6 +256,8 @@ HTML • CSS • JavaScript
 
 </span>
 
+<a class="project-link" href="https://github.com/taghzaouianas1-rgb" target="_blank" rel="noreferrer">EXPLORE PROJECT <b>↗</b></a>
+
 </div>
 
 </div>
@@ -258,35 +266,20 @@ HTML • CSS • JavaScript
 
 <section id="contact" class="section">
 
-<div class="section-title">
+<div class="section-label"><span>05</span><div class="section-title">CONTACT</div></div>
 
-CONTACT
-
-</div>
-
-<h3>
-
-Let's build something together.
-
-</h3>
+<h3>Have an idea worth building?</h3>
+<p class="contact-copy">I’m always open to talking about web projects, internships, and opportunities to learn with great people.</p>
 
 <div class="contact-links">
 
-<a href="#">Email</a>
+<button class="email-button" type="button" data-email="your-email@example.com">COPY EMAIL <span>↗</span></button>
 
-<a href="https://github.com/taghzaouianas1-rgb" target="_blank">
-
-GitHub
-
-</a>
-
-<a href="#">
-
-LinkedIn
-
-</a>
+<a href="https://github.com/taghzaouianas1-rgb" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>
 
 </div>
+
+<p class="contact-hint">Replace <code>your-email@example.com</code> in <code>index.html</code> with your email to activate the copy button.</p>
 
 </section>
 
@@ -294,19 +287,12 @@ LinkedIn
 
 <footer>
 
-<p>
-
-© 2026 Anas Taghzaoui
-
-</p>
+<p>© 2026 ANAS TAGHZAOUI</p>
+<a href="#top" class="back-to-top" aria-label="Back to top">BACK TO TOP ↑</a>
 
 </footer>
 
 <script src="script.js"></script>
-
-<script>
-feather.replace();
-</script>
 
 </body>
 </html>
